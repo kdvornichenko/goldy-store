@@ -1,0 +1,53 @@
+.header
+	margin-top: 24px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	font-size: 14px
+	> div:not(.header__logo)
+		height: max-content
+	&__location
+		margin-right: 60px
+		display: flex
+		gap: 8px
+		align-items: center
+		cursor: pointer
+		&-icon
+			display: flex
+	&__phone
+		> a
+			display: flex
+			gap: 10px
+			align-items: center
+			> span
+				display: flex
+	&__logo
+		display: flex
+		justify-content: center
+		flex: auto
+		> a
+			text-align: center
+		&-text
+			font-size: 32px
+			> span:first-child
+				color: $header-logo-gold
+		&-subtext
+			font-family: 'Roboto Condensed', sans-serif
+			font-weight: 300
+			letter-spacing: 0.27em
+			color: $header-logo-gray
+	&__auth
+		margin-right: 70px
+		display: flex
+		align-items: center
+		gap: 10px
+		&-line
+			display: block
+			width: 1px
+			height: 10px
+			background-color: $main-text
+	&__tools
+		display: flex
+		gap: 28px
+		> div
+			cursor: pointer
