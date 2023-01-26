@@ -1,35 +1,201 @@
 .header
+	position: relative
 	margin-top: 24px
 	display: flex
-	justify-content: space-between
+	justify-content: center
 	align-items: center
 	font-size: 14px
-	> div:not(.header__logo)
-		height: max-content
-	&__location
-		margin-right: 60px
-		display: flex
-		gap: 8px
+	svg
+		path
+			transition: all 0.2s
+	&__burger
+		width: 35px
+		height: 35px
+		position: relative
+		display: none
 		align-items: center
+		justify-content: center
+		flex-direction: column
+		gap: 3px
+		background-color: $main-black
+		border-radius: 100%
 		cursor: pointer
+		z-index: 4
+		&::after
+			width: 16px
+			height: 14px
+			position: absolute
+			top: -2px
+			right: -5px
+			content: ''
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='14' viewBox='0 0 20 18' fill='none'%3E%3Cpath d='M7.94668e-08 5.39995C-0.000248434 3.95029 0.582385 2.5614 1.61681 1.54578C2.65124 0.530159 4.05058 -0.026895 5.5 -4.93311e-05C7.21732 -0.00916934 8.85599 0.719125 10 1.99995C11.144 0.719125 12.7827 -0.00916934 14.5 -4.93311e-05C15.9494 -0.026895 17.3488 0.530159 18.3832 1.54578C19.4176 2.5614 20.0002 3.95029 20 5.39995C20 10.756 13.621 14.8 10 18C6.387 14.773 7.94668e-08 10.76 7.94668e-08 5.39995Z' fill='%23E24B33'/%3E%3C/svg%3E")
+			opacity: 1
+			transition: all 0.7s
+		span
+			position: relative
+			display: block
+			width: 21px
+			box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3)
+			border-radius: 3px
+			height: 2px
+			background: $main-white
+			transition: all .3s
+		&.active
+			&::after
+				top: 89px
+				right: 14px
+				transform: scale(1.45)
+				animation: ease .7s heart forwards .8s
+			span:first-child
+				animation: ease .6s top forwards
+		&.not-active
+			span:first-child
+				animation: ease .6s top-2 forwards
+		&.active
+			span:nth-child(2)
+				animation: ease .6s scaled forwards
+		&.not-active
+			span:nth-child(2)
+				animation: ease .6s scaled-2 forwards
+		&.active
+			span:last-child
+				animation: ease .6s bottom forwards
+		&.not-active
+			span:last-child
+				animation: ease .6s bottom-2 forwards
+		@keyframes heart
+			0%
+				opacity: 1
+			100%
+				opacity: 0
+				visibility: hidden
+		@keyframes top
+			0%
+				top: 0
+				transform: rotate(0)
+			50%
+				top: 5px
+				transform: rotate(0)
+			100%
+				top: 5px
+				transform: rotate(45deg)
+		@keyframes top-2
+			0%
+				top: 5px
+				transform: rotate(45deg)
+			50%
+				top: 5px
+				transform: rotate(0deg)
+			100%
+				top: 0
+				transform: rotate(0deg)
+		@keyframes bottom
+			0%
+				bottom: 0
+				transform: rotate(0)
+			50%
+				bottom: 5px
+				transform: rotate(0)
+			100%
+				bottom: 5px
+				transform: rotate(135deg)
+		@keyframes bottom-2
+			0%
+				bottom: 5px
+				transform: rotate(135deg)
+			50%
+				bottom: 5px
+				transform: rotate(0)
+			100%
+				bottom: 0
+				transform: rotate(0)
+		@keyframes scaled
+			50%
+				transform: scale(0)
+			100%
+				transform: scale(0)
+		@keyframes scaled-2
+			0%
+				transform: scale(0)
+			50%
+				transform: scale(0)
+			100%
+				transform: scale(1)
+	&__location
+		position: relative
+		&-wrap
+			width: 170px
+			margin-right: 60px
+			display: flex
+			gap: 8px
+			align-items: center
+			cursor: pointer
+			&:hover
+				.header__location-icon
+					svg
+						path
+							fill: $header-logo-gold
 		&-icon
 			display: flex
+		&-arrow
+			transition: transform 0.2s
+			&.rotate
+				transform: rotate(-180deg)
+		&-list
+			margin-top: 20px
+			position: absolute
+			top: 100%
+			width: max-content
+			background-color: white
+			box-shadow: $location-list-shadow
+			overflow: hidden
+			transition: height 0.2s
+			z-index: 1
+			ul
+				padding: 16px 0
+				li
+					padding: 9px 52px 9px 24px
+					transition: background-color 0.2s
+					cursor: pointer
+					&.selected
+						display: block
+						position: relative
+						&::after
+							width: 16px
+							height: 16px
+							margin: auto 0
+							position: absolute
+							right: 28px
+							top: 0
+							bottom: 0
+							content: ''
+							background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.29998 11.9L2.56665 8.16665L3.28332 7.44998L6.29998 10.4667L12.7 4.06665L13.4167 4.78332L6.29998 11.9Z' fill='black'/%3E%3C/svg%3E%0A")
+					&:hover
+						background-color: $location-list-hover
+			&.hidden
+				transition: height 0.2s
+				height: 0
 	&__phone
-		> a
+		a
 			display: flex
 			gap: 10px
 			align-items: center
-			> span
+			span
 				display: flex
+			&:hover
+				.header__phone-icon
+					svg
+						path
+							fill: $header-logo-gold
 	&__logo
 		display: flex
 		justify-content: center
 		flex: auto
-		> a
+		a
 			text-align: center
 		&-text
 			font-size: 32px
-			> span:first-child
+			span:first-child
 				color: $header-logo-gold
 		&-subtext
 			font-family: 'Roboto Condensed', sans-serif
@@ -41,13 +207,69 @@
 		display: flex
 		align-items: center
 		gap: 10px
+		&-signin,&-reg
+			cursor: pointer
+			transition: opacity 0.2s
+			&:hover
+				opacity: 0.8
+			&:active
+				opacity: 0.5
 		&-line
 			display: block
 			width: 1px
 			height: 10px
-			background-color: $main-text
+			background-color: $main-black
 	&__tools
 		display: flex
 		gap: 28px
-		> div
+		div
 			cursor: pointer
+		&-favorite
+			position: relative
+			&::after
+				width: 19px
+				height: 19px
+				position: absolute
+				top: -8px
+				right: -12px
+				content: '23'
+				font-weight: 700
+				font-size: 10px
+				line-height: 19px
+				text-align: center
+				color: $main-white
+				border-radius: 100%
+				background-color: $favorite-circle
+			&:hover
+				span
+					svg
+						path
+							fill: $favorite-hover
+@media screen and ( max-width: 1025px	)
+	.header
+		&__burger
+			display: flex
+		&__location
+			display: block
+			position: absolute
+			left: -200px
+			z-index: 3
+			transition: left 0.5s ease-in-out
+			&-wrap
+				margin-right: 0
+			&-list
+				ul
+					li
+						padding: 9px 24px
+						&.selected
+							&::after
+								right: 5px
+			&.visible
+				left: 70px
+		&__phone, &__auth,&__tools-favorite, &__tools-compare
+			display: none
+		&__tools
+			&-cart
+				span
+					svg
+						width: 35px

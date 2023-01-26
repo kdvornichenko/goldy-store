@@ -10,7 +10,7 @@
 		height: 100%
 		padding-right: 110px
 		flex: auto
-		border-right: 1px solid $menu-border
+		border-right: 1px solid $navigation-menu-border
 		nav
 			height: inherit
 			display: flex
@@ -19,16 +19,31 @@
 			display: flex
 			justify-content: space-between
 			flex: auto
-			> li
-				font-size: 13px
-				font-weight: 500
-				text-transform: uppercase
+			font-size: 13px
+			font-weight: 500
+			text-transform: uppercase
+			li
+				transition: opacity 0.2s
+				&:hover
+					opacity: 0.8
+				&.active
+					opacity: 0.5
 	&__search
 		padding-left: 24px
 		display: flex
 		gap: 12px
-		> input
+		input
 			width: 100%
 			max-width: 190px
 			&::placeholder
 				color: $search-placeholder
+
+@media screen and ( max-width:1441px )
+	.navigation
+		padding: 0 30px
+		&__menu
+			padding-right: 24px
+
+@media screen and ( max-width: 1025px )
+	.navigation
+		display: none
