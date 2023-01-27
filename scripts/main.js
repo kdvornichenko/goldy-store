@@ -42,6 +42,8 @@ burger.addEventListener('click', () => {
 	burger.classList.toggle('not-active')
 
 	currentLocationContainer.classList.toggle('visible')
+	document.body.classList.toggle('overflow-hidden')
+
 	mobMenuVisibility()
 
 	burger.style.setProperty(
@@ -62,3 +64,58 @@ function mobMenuVisibility() {
 		}, 400)
 	}
 }
+
+// Slider
+const slider = document.querySelector('.slider')
+const slideWrap = slider.querySelector('.slide__wrap')
+const arrowPrev = slider.querySelector('.slider__control-arrow_prev')
+const arrowNext = slider.querySelector('.slider__control-arrow_next')
+const dots = slider.querySelectorAll('.slider__control-dots span')
+
+let slide = slider.querySelector('.slide.active')
+let slideWidth = 0
+
+arrowNext.addEventListener('click', nextSlide)
+arrowPrev.addEventListener('click', prevSlide)
+
+function setSlide() {
+	slideWrap.style.transform = `translate3d(${slideWidth}px, 0, 0.1px)`
+}
+
+function toggleSldeClass() {
+	setSlide()
+	slide.classList.remove('active')
+	slide = slider.querySelector('.slide.active')
+}
+
+function nextSlide() {
+	if (slide.nextElementSibling) {
+		slideWidth = slideWidth + -slide.offsetWidth
+		slide.nextElementSibling.classList.add('active')
+		toggleSldeClass()
+		setDot()
+	}
+}
+
+function prevSlide() {
+	if (slide.previousElementSibling) {
+		slideWidth = slideWidth + slide.offsetWidth
+		slide.previousElementSibling.classList.add('active')
+		toggleSldeClass()
+		setDot()
+	}
+}
+
+function setDot() {
+	for (let i = 0; i < slideWrap.children.length; i++) {
+		console.log(slideWrap.children[i])
+		if (slideWrap.children[i].classList.contains('active')) {
+			dots.forEach(item => {
+				item.classList.remove('active')
+			})
+			dots[i].classList.add('active')
+		}
+	}
+}
+
+setSlide()
