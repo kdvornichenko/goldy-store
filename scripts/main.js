@@ -43,6 +43,7 @@ burger.addEventListener('click', () => {
 
 	currentLocationContainer.classList.toggle('visible')
 	document.body.classList.toggle('overflow-hidden')
+	document.documentElement.outerHTML.classList.toggle('overflow-hidden')
 
 	mobMenuVisibility()
 
