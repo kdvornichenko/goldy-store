@@ -9,10 +9,32 @@ body
 	color: $main-black
 	width: 100%
 	max-width: $max-width
-	padding: 0 $padding-x
+	padding: 0 $padding-x 80px
 	margin: 0 auto
 	&.overflow-hidden
 		overflow-y: hidden
 
 h1,h2,h3,h4,h5
 	font-family: 'Prata', serif
+
+h1
+	font-size: 32px
+
+h3
+	font-size: 40px
+
+@media screen and ( max-width: 1025px )
+	h3
+		font-size: 28px
+
+@media screen and ( max-width: 769px )
+	h3
+		font-size: 24px
+
+@media screen and ( max-width: 641px )
+	h3
+		font-size: 20px
+
+@media screen and ( max-width: 376px )
+	h3
+		font-size: 16px
