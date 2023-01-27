@@ -32,14 +32,22 @@ const burger = document.querySelector('.header__burger')
 const mobMenu = document.querySelector('.mobile-menu')
 const currentMobLocation = mobMenu.querySelector('.header__location-wrap')
 const currentLocationContainer = header.querySelector('.header__location')
+const burgerHeart = window.getComputedStyle(burger, ':after')
+const toolsFavorite = mobMenu.querySelector(
+	'.mobile-menu__sidebar-tools_favorite'
+)
 
-// Mobile Menu
 burger.addEventListener('click', () => {
 	burger.classList.toggle('active')
 	burger.classList.toggle('not-active')
 
 	currentLocationContainer.classList.toggle('visible')
 	mobMenuVisibility()
+
+	burger.style.setProperty(
+		'--top',
+		`${toolsFavorite.getBoundingClientRect().top - 31}px`
+	)
 })
 
 function mobMenuVisibility() {
