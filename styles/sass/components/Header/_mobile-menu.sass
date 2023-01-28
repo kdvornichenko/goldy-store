@@ -30,8 +30,6 @@
 				position: relative
 				transition: opacity 0.6s ease
 				opacity: 0
-				path
-					transition: all 0.2s
 				&::after
 					width: 19px
 					height: 19px
@@ -51,6 +49,11 @@
 						svg
 							path
 								fill: $favorite-hover
+				&:active
+					span
+						svg
+							path
+								fill: $main-red
 				svg
 					width: 25px
 		&-navigation

@@ -3,7 +3,7 @@ const header = document.querySelector('.header')
 const currentLocation = header.querySelector('.header__location-wrap')
 const city = currentLocation.querySelector('.header__location-city')
 const arrow = currentLocation.querySelector('.header__location-arrow')
-const citiesContainer = header.querySelector('.header__location-list')
+const citiesContainer = header.querySelector('.options-list')
 const listOfCities = citiesContainer.querySelectorAll('li')
 
 currentLocation.addEventListener('click', locationListVisibility)
@@ -14,7 +14,7 @@ listOfCities.forEach(item => {
 })
 
 function setNewCity(item) {
-	city.innerText = item.dataset.city
+	city.innerText = item.dataset.option
 	listOfCities.forEach(item => {
 		item.classList.remove('selected')
 	})
@@ -69,9 +69,9 @@ function mobMenuVisibility() {
 // Slider
 const slider = document.querySelector('.slider')
 const slideWrap = slider.querySelector('.slide__wrap')
-const arrowPrev = slider.querySelector('.slider__control-arrow_prev')
-const arrowNext = slider.querySelector('.slider__control-arrow_next')
-const dots = slider.querySelectorAll('.slider__control-dots span')
+const arrowPrev = slider.querySelector('.control-arrow_prev')
+const arrowNext = slider.querySelector('.control-arrow_next')
+const dots = slider.querySelectorAll('.control-dots span')
 
 let slide = slider.querySelector('.slide.active')
 let slideWidth = 0
@@ -120,3 +120,4 @@ function setDot() {
 }
 
 setSlide()
+

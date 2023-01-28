@@ -1,0 +1,146 @@
+.sale
+	&__filter
+		margin-top: 24px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		&-buttons
+			display: flex
+			gap: 8px
+			button
+				padding: 13px 30px
+				font-size: 14px
+				background-color: $main-gray-light
+				border-radius: 21px
+				&:hover
+					background-color: $filter-button-hover
+				&:active
+					background-color: $main-black
+					color: $main-white
+				&.active
+					color: $main-white
+					background-color: $main-black
+					cursor: default
+		&-arrows
+			display: flex
+			gap: 8px
+	&__cards
+		margin-top: 36px
+		display: flex
+		justify-content: center
+		gap: 20px
+		flex-wrap: wrap
+		&-item
+			position: relative
+			width: 310px
+			max-height: 370px
+			padding: 40px 26px 26px
+			border: 1px solid $main-gray-light
+			&:hover
+				margin-top: -5px
+				margin-bottom: 5px
+				max-height: 473px
+				box-shadow: $card-shadow
+				.sale
+					&__cards
+						&-item
+							&_labels
+								&-hit
+									opacity: 1
+							&_content
+								.options
+									opacity: 1
+			&_labels, &_tools
+				position: absolute
+				top: 16px
+			&_labels
+				left: 24px
+				display: flex
+				gap: 4px
+				span
+					font-size: 13px
+					font-weight: 500
+					color: $main-white
+					border-radius: 15px
+					padding: 4px 12px
+					cursor: default
+				&-sale
+					background-color: $label-green
+				&-hit
+					opacity: 0
+					background-color: $main-yellow-dark
+					transition: opacity 0.2s
+			&_tools
+				right: 24px
+				display: flex
+				gap: 10px
+				flex-direction: column
+				span
+					cursor: pointer
+					&:hover
+						svg
+							path
+								fill: $main-gray-dark
+			&_content
+				height: 100%
+				display: flex
+				flex-direction: column
+				justify-content: flex-start
+				&-img
+					position: relative
+					display: flex
+					justify-content: center
+					.control-dots
+						position: absolute
+						margin: 0 auto
+						left: 0
+						right: 0
+						bottom: 6px
+				&-price
+					margin-top: 23px
+					font-size: 18px
+					font-weight: 600
+					display: flex
+					align-items: center
+					.old
+						margin-left: 8px
+						align-self: flex-end
+						font-size: 14px
+						font-weight: 400
+						color: $text-gray
+						text-decoration-line: line-through
+					.percent
+						padding: 4px 8px
+						margin-left: auto
+						font-size: 13px
+						font-weight: 500
+						border-radius: 15px
+						background-color: $main-red
+						color: $main-white
+				&-description
+					margin-top: 16px
+					font-size: 14px
+				.options
+					margin-top: 24px
+					display: flex
+					flex-direction: column
+					gap: 8px
+					opacity: 0
+					transition: opacity 0.2s
+					& > button
+						position: relative
+						padding: 9px 16px
+						background-color: $main-gray-light
+						.options-option
+							display: flex
+							align-items: center
+							justify-content: space-between
+						&:hover
+							.options-list.hidden
+								height: max-content
+					&-list
+						width: 100%
+						top: 100%
+						left: 0
+						ul
+							li
