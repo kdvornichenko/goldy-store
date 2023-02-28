@@ -7,7 +7,7 @@ const citiesContainer = header.querySelector('.options-list')
 const listOfCities = citiesContainer.querySelectorAll('li')
 
 currentLocation.addEventListener('click', locationListVisibility)
-listOfCities.forEach(item => {
+listOfCities.forEach((item) => {
 	item.addEventListener('click', () => {
 		setNewCity(item)
 	})
@@ -15,7 +15,7 @@ listOfCities.forEach(item => {
 
 function setNewCity(item) {
 	city.innerText = item.dataset.option
-	listOfCities.forEach(item => {
+	listOfCities.forEach((item) => {
 		item.classList.remove('selected')
 	})
 	item.classList.add('selected')
@@ -49,7 +49,7 @@ burger.addEventListener('click', () => {
 
 	burger.style.setProperty(
 		'--top',
-		`${toolsFavorite.getBoundingClientRect().top - 31}px`
+		`${toolsFavorite.getBoundingClientRect().top - 13.5}px`
 	)
 })
 
@@ -111,7 +111,7 @@ function setDot() {
 	for (let i = 0; i < slideWrap.children.length; i++) {
 		console.log(slideWrap.children[i])
 		if (slideWrap.children[i].classList.contains('active')) {
-			dots.forEach(item => {
+			dots.forEach((item) => {
 				item.classList.remove('active')
 			})
 			dots[i].classList.add('active')
@@ -120,4 +120,3 @@ function setDot() {
 }
 
 setSlide()
-
