@@ -49,7 +49,7 @@ burger.addEventListener('click', () => {
 
 	burger.style.setProperty(
 		'--top',
-		`${toolsFavorite.getBoundingClientRect().top - 13.5}px`
+		`${toolsFavorite.getBoundingClientRect().top - 9.5}px`
 	)
 })
 
