@@ -16,7 +16,7 @@ body
 	color: $main-black
 	width: 100%
 	max-width: $max-width
-	padding: 0 $padding-x 80px
+	padding: $padding
 	margin: 0 auto
 
 h1,h2,h3,h4,h5
@@ -100,7 +100,7 @@ section:not(:first-child)
 		font-size: 28px
 
 	section:not(:first-child)
-		margin-top: 100px
+		margin: 100px auto 0
 
 	.control-arrow
 		&_prev, &_next
@@ -147,9 +147,17 @@ section:not(:first-child)
 				&:active
 					background-position-x: 14px
 
+@media screen and ( max-width: 426px )
+	body
+		padding: $padding-mob
+
+	section:not(:first-child)
+		max-width: 360px
+
 @media screen and ( max-width: 376px )
 	h3
 		font-size: 16px
 
 	section:not(:first-child)
 		margin-top: 40px
+		max-width: 310px

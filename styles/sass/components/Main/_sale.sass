@@ -4,9 +4,11 @@
 		display: flex
 		justify-content: space-between
 		align-items: center
+		flex-wrap: wrap
 		&-buttons
 			display: flex
 			gap: 8px
+			flex-wrap: wrap
 			button
 				padding: 13px 30px
 				font-size: 14px
@@ -29,7 +31,6 @@
 		display: flex
 		justify-content: center
 		gap: 20px
-		flex-wrap: wrap
 		&-item
 			position: relative
 			width: 310px
@@ -49,6 +50,7 @@
 									opacity: 1
 							&_content
 								.options
+									display: flex
 									opacity: 1
 			&_labels, &_tools
 				position: absolute
@@ -75,12 +77,17 @@
 				display: flex
 				gap: 10px
 				flex-direction: column
-				span
+				&-favorite, &-eye
 					cursor: pointer
 					&:hover
 						svg
 							path
 								fill: $main-gray-dark
+				&-favorite
+					&:active
+						svg
+							path
+								fill: $main-red
 			&_content
 				height: 100%
 				display: flex
@@ -122,7 +129,7 @@
 					font-size: 14px
 				.options
 					margin-top: 24px
-					display: flex
+					display: none
 					flex-direction: column
 					gap: 8px
 					opacity: 0
@@ -142,5 +149,98 @@
 						width: 100%
 						top: 100%
 						left: 0
-						ul
-							li
+
+@media screen and ( max-width: 1201px )
+	.sale
+		&__cards
+			&-item
+				&_content
+					&-price
+						position: relative
+						flex-direction: column
+						align-items: flex-start
+						font-size: 14px
+						.old
+							margin: 0
+							align-self: flex-start
+						.percent
+							position: absolute
+							right: 0
+							top: 0
+							bottom: 0
+							margin: auto 0
+							height: max-content
+
+@media screen and ( max-width: 1025px )
+	.sale
+		&__cards
+			&-item
+				padding: 30px 16px 20px
+				&_labels,&_tools
+					top: 16px
+				&_labels
+					left: 16px
+				&_tools
+					right: 16px
+
+@media screen and ( max-width: 769px )
+	.sale
+		&__cards
+			&-item
+				padding: 30px 6px 20px
+				max-height: 320px
+				max-width: 170px
+				&_labels,&_tools
+					top: 6px
+				&_labels
+					left: 6px
+				&_tools
+					right: 6px
+				&_content
+					&-price
+						font-size: 14px
+
+@media screen and ( max-width: 641px )
+	.sale
+		&__filter
+			margin-top: 18px
+			display: block
+			gap: 10px
+			&-buttons
+				padding: 10px 24px
+				justify-content: flex-start
+				gap: 4px
+				button
+					padding: 10px 16px
+					font-size: 12px
+			&-arrows
+				display: none
+		&__cards
+			margin-top: 10px
+			flex-wrap: wrap
+			justify-content: center
+			&-item
+				max-width: unset
+				min-width: 200px
+				max-height: 350px
+				flex: 1
+
+@media screen and ( max-width: 452px )
+	.sale
+		&__cards
+			gap: 4px
+			&-item
+				min-width: 170px
+
+@media screen and ( max-width: 376px )
+	.sale
+		&__filter
+			margin-top: 14px
+			&-buttons
+				button
+					padding: 8px 16px
+					font-size: 10px
+		&__cards
+			margin-top: 16px
+			&-item
+				min-width: 130px
